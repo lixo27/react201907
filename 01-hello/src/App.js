@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main role="main" class="flex-shrink-0">
+      <div className="container">
+        <Hello />
+        <Lead />
+      </div>
+    </main>
   );
+
+}
+
+class Hello extends React.Component {
+
+  render() {
+
+    const hello = 'hello, world!';
+
+    return (
+      <h1 className="mt-5">{ hello }</h1>
+    );
+
+  }
+
+}
+
+class Lead extends React.Component {
+
+  render() {
+
+    const lead = 'Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.';
+
+    return (
+      <p className="lead">{ lead }</p>
+    );
+
+  }
+
 }
 
 export default App;
