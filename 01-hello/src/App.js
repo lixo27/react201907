@@ -8,7 +8,10 @@ function App() {
       <div className="container">
         <Hello />
         <Lead />
+        <hr />
         <Form />
+        <hr />
+        <List />
       </div>
     </main>
   );
@@ -38,8 +41,8 @@ class Lead extends React.Component {
 class Form extends React.Component {
   render() {
     const nameLabel = 'Your Name';
-    
-    return(
+
+    return (
       <form>
         <div className="form-label-group">
           <label htmlFor="inputName">{ nameLabel }</label>
@@ -47,6 +50,22 @@ class Form extends React.Component {
         </div>
       </form>
     );
+  }
+}
+
+class List extends React.Component {
+  render() {
+    const people = [
+      { id: 1, nome: 'Maria', idade: 27 },
+      { id: 2, nome: 'Thiago', idade: 28 },
+      { id: 3, nome: 'Fabiana', idade: 25 },
+    ];
+
+    const listItems = people.map(function(person) {
+      return <li key={ person.id }>{ person.nome } - { person.idade } anos</li>
+    });
+
+    return <ul>{ listItems }</ul>;
   }
 }
 
