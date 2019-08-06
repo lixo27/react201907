@@ -8,6 +8,7 @@ import ExercicioFunctionDefaults from './ExercicioFunctionDefaults'
 import ExercicioIterator from './ExercicioIterator'
 import ExercicioMap from './ExercicioMap'
 import ExercicioSet from './ExercicioSet'
+import ExercicioState from './ExercicioState'
 import ExercicioTemplateString from './ExercicioTemplateString'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <ExercicioIterator />
       <ExercicioMap />
       <ExercicioSet />
+      <ExercicioState />
       <ExercicioTemplateString />
     </div>
   );
