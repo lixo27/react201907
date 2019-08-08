@@ -11,7 +11,7 @@ const arrayFinal = [
 ];
 
 const arrayFinalEl = arrayFinal.map(number => {
-  return <li>{ number }</li>
+  return <li key={ number }>{ number }</li>
 });
 
 export default () => {

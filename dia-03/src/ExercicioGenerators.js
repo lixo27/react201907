@@ -49,7 +49,7 @@ const PercorreLinha477El = () => {
 
   return(
     <ul>
-      { trajeto.map(parada => <li>{ parada }</li>) }
+      { trajeto.map(parada => <li key={ parada }>{ parada }</li>) }
     </ul>
   );
 
@@ -64,7 +64,7 @@ const PercorreEquipeDevEl = () => {
 
   return(
     <ul>
-      { equipe.map(membro => <li>{ membro }</li>) }
+      { equipe.map(membro => <li key={ membro }>{ membro }</li>) }
     </ul>
   );
 
@@ -79,7 +79,7 @@ const PercorreTodaEquipeEl = () => {
 
   return(
     <ul>
-      { equipe.map(membro => <li>{ membro }</li>) }
+      { equipe.map(membro => <li key={ membro }>{ membro }</li>) }
     </ul>
   );
 

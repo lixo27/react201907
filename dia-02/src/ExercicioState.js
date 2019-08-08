@@ -20,10 +20,8 @@ class ExercicioState extends React.Component {
 
     this.state = {
       search: '',
-      items: people,
+      items: people
     }
-
-    window.exercicio = this;
   }
 
   doSearch(event) {

@@ -8,7 +8,7 @@ const profissoes = [
 
 const PadStartEl = () => {
 
-  const applyPad = profissao => <pre>{ profissao.padStart(13, '-') }</pre>
+  const applyPad = profissao => <pre key={ profissao }>{ profissao.padStart(13, '-') }</pre>
 
   return(
     <ul>
@@ -19,7 +19,7 @@ const PadStartEl = () => {
 
 const PadEndEl = () => {
 
-  const applyPad = profissao => <pre>{ profissao.padEnd(13, '-') }</pre>
+  const applyPad = profissao => <pre key={ profissao }>{ profissao.padEnd(13, '-') }</pre>
 
   return(
     <ul>

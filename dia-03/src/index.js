@@ -8,6 +8,7 @@ import ExercicioES8Pad from './ExercicioES8Pad';
 import ExercicioExponenciacao from './ExercicioExponenciacao';
 import ExercicioGenerators from './ExercicioGenerators';
 import ExercicioIncludes from './ExercicioIncludes';
+import ExercicioPromise from './ExercicioPromise';
 import ExercicioRest from './ExercicioRest';
 import ExercicioSpread from './ExercicioSpread';
 import ExercicioStaticMethods from './ExercicioStaticMethods';
@@ -22,6 +23,7 @@ function App() {
       <ExercicioExponenciacao />
       <ExercicioGenerators />
       <ExercicioIncludes />
+      <ExercicioPromise />
       <ExercicioRest />
       <ExercicioSpread />
       <ExercicioStaticMethods />

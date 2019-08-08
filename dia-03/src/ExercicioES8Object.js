@@ -5,6 +5,8 @@ const pessoa = {
   idade: 36
 }
 
+const propertyDescriptors = Object.getOwnPropertyDescriptors(pessoa);
+
 export default () => {
 
   const entries = Object.entries(pessoa);
@@ -25,6 +27,11 @@ export default () => {
       <ul>
         <li>Nome: { map.get('nome') }</li>
         <li>Idade: { map.get('idade') }</li>
+      </ul>
+      <ul>
+        <li>
+          <pre>{ JSON.stringify(propertyDescriptors, null, 1) }</pre>
+        </li>
       </ul>
     </div>
   );
