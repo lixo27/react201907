@@ -9,6 +9,37 @@ const percorreLinha477 = function*() {
   yield 'ponto final';
 }
 
+const equipeDev = {
+  senior: 'Thiago',
+  pleno: 'Lucas',
+  junior: 'Fabiana',
+  quantidade: 3,
+  [Symbol.iterator]: function* () {
+    yield this.senior;
+    yield this.pleno;
+    yield this.junior;
+  }
+}
+
+const equipeVendas = {
+  gerente: 'Valeria',
+  vendedor: 'Karina',
+  quantidade: 2,
+  [Symbol.iterator]: function* () {
+    yield this.gerente;
+    yield this.vendedor;
+  }
+};
+
+const todaEquipe = {
+  equipeDev,
+  equipeVendas,
+  [Symbol.iterator]: function* () {
+    yield *equipeDev;
+    yield *equipeVendas;
+  }
+};
+
 const PercorreLinha477El = () => {
 
   let trajeto = [];
@@ -24,11 +55,43 @@ const PercorreLinha477El = () => {
 
 }
 
+const PercorreEquipeDevEl = () => {
+
+  let equipe = [];
+  for (let membro of equipeDev) {
+    equipe.push(membro);
+  }
+
+  return(
+    <ul>
+      { equipe.map(membro => <li>{ membro }</li>) }
+    </ul>
+  );
+
+}
+
+const PercorreTodaEquipeEl = () => {
+
+  let equipe = [];
+  for (let membro of todaEquipe) {
+    equipe.push(membro);
+  }
+
+  return(
+    <ul>
+      { equipe.map(membro => <li>{ membro }</li>) }
+    </ul>
+  );
+
+}
+
 export default () => {
   return(
     <div>
       <h1>Exercício Generators</h1>
       <PercorreLinha477El />
+      <PercorreEquipeDevEl />
+      <PercorreTodaEquipeEl />
     </div>
   );
 }
