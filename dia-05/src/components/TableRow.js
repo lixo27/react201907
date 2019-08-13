@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default ({ id, author, comment, likes }) => {
+export default ({ objectID, author, title, comments }) => {
   return (
     <tr>
-      <th scope="row">{ id }</th>
+      <th scope="row">{ objectID }</th>
       <td>{ author }</td>
-      <td>{ comment }</td>
-      <td>{ likes }</td>
+      <td>{ title }</td>
+      <td>{ comments }</td>
     </tr>
   );
 }

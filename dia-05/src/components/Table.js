@@ -7,8 +7,8 @@ export default ({ children }) => {
         <tr>
           <th scope="col">#</th>
           <th scope="col">Author</th>
-          <th scope="col">Comment</th>
-          <th scope="col">Likes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Comments</th>
         </tr>
       </thead>
       <tbody>
