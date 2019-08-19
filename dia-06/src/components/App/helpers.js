@@ -10,7 +10,7 @@ const doSearch = async (query, page) => {
       page,
       hitsPerPage
     }
-  });
+  })
 
 };
 
