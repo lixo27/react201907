@@ -1,11 +1,9 @@
 import React from 'react';
 
-import hackernews from '../../api/hackernews';
+import {doGetSearch} from './helpers';
 import {updateStateOnSearchResponse} from './helpers';
 
-console.log(updateStateOnSearchResponse);
-
-export default class extends React.Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,24 +15,19 @@ export default class extends React.Component {
     };
   }
 
-  componentDidMount() {
-    hackernews.get('/search', {
-      params: {
-        'query': this.state.searchQuery,
-        'page': this.state.searchPage,
-        'hitsPerPage': 10
-      }
-    }).then(response => {
-      this.setState(updateStateOnSearchResponse(response));
-    });
+  async componentDidMount() {
+    const response = await doGetSearch(this.state.searchQuery, this.state.searchPage);
+    this.setState(updateStateOnSearchResponse(response));
   }
 
   render() {
     console.log(this.state);
 
     return (
-      <p>hello, hackernews!</p>
+      <pre>hello, hackernews!</pre>
     );
   }
 
 }
+
+export default App;
