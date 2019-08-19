@@ -1,6 +1,8 @@
 import hackernews from '../../api/hackernews';
 
-const doSearch = async ({searchQuery, searchPage}) => {
+const doSearch = async (state) => {
+
+  const {searchQuery, searchPage} = state;
 
   return hackernews.get('/search', {
     params: {
@@ -12,7 +14,9 @@ const doSearch = async ({searchQuery, searchPage}) => {
 
 };
 
-const updateStateBySearchResponse = ({data: {hits, page}}) => (previous, props) => {
+const updateStateBySearchResponse = (response) => (previous, props) => {
+
+  const {data: {hits, page}} = response;
 
   return {
     searchHits: hits,
