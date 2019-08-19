@@ -16,8 +16,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const {searchQuery, searchPage} = this.state;
-    const response = await doSearch(searchQuery, searchPage);
+    const response = await doSearch(this.state);
     this.setState(updateStateBySearchResponse(response));
   }
 
