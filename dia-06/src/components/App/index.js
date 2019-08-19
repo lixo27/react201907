@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {doGetSearch} from './helpers';
-import {updateStateOnSearchResponse} from './helpers';
+import {doSearch} from './helpers';
+import {updateStateBySearchResponse} from './helpers';
 
 class App extends React.Component {
 
@@ -16,15 +16,16 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await doGetSearch(this.state.searchQuery, this.state.searchPage);
-    this.setState(updateStateOnSearchResponse(response));
+    const {searchQuery, searchPage} = this.state;
+    const response = await doSearch(searchQuery, searchPage);
+    this.setState(updateStateBySearchResponse(response));
   }
 
   render() {
     console.log(this.state);
 
     return (
-      <pre>hello, hackernews!</pre>
+      <p>hello, hackernews!</p>
     );
   }
 

@@ -1,22 +1,31 @@
 import hackernews from '../../api/hackernews';
 
-const doGetSearch = async (query, page) => {
+const doSearch = async (query, page) => {
+
+  const hitsPerPage = 10;
+
   return hackernews.get('/search', {
     params: {
-      'query': query,
-      'page': page,
-      'hitsPerPage': 10
-    },
+      query,
+      page,
+      hitsPerPage
+    }
   });
+
 };
 
-const updateStateOnSearchResponse = response => (previous, props) => {
+const updateStateBySearchResponse = response => (previous, props) => {
+
+  const {hits, page} = response.data;
+
   return {
-    'searchHits': response.data.hits
+    searchHits: hits,
+    searchPage: page
   }
+
 };
 
 export {
-  doGetSearch,
-  updateStateOnSearchResponse,
+  doSearch,
+  updateStateBySearchResponse,
 }
