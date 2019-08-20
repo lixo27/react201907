@@ -1,7 +1,6 @@
 import React from 'react';
 
 const JournalDismiss = () => {
-
     const style = {
         color: 'inherit',
         fontSize: 'inherit',
@@ -14,7 +13,6 @@ const JournalDismiss = () => {
             Dismiss
         </button>
     );
-
 };
 
 export default JournalDismiss;

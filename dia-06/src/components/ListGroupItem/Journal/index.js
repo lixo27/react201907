@@ -1,29 +1,16 @@
 import React from 'react';
 
-import JournalDismiss from "../JournalDismiss";
-import JournalMeta from "../JournalMeta";
-import JournalTitle from "../JournalTitle";
+import JournalDismiss from "./Dismiss";
+import JournalMeta from "./Meta";
+import JournalTitle from "./Title";
 
 const JournalListGroupItem = props => {
-    const {
-        author,
-        created_at,
-        num_comments,
-        points,
-        title,
-        url,
-    } = props.item;
+    const { item } = props;
 
     return (
         <div className="list-group-item">
-            <JournalTitle title={ title }/>
-            <JournalMeta
-                points={ points }
-                author={ author }
-                created_at={ created_at }
-                num_comments={ num_comments }
-                url={ url }
-            >
+            <JournalTitle item={ item }/>
+            <JournalMeta item={ item }>
                 <JournalDismiss/>
             </JournalMeta>
         </div>
