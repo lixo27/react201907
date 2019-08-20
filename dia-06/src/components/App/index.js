@@ -1,32 +1,34 @@
 import React from 'react';
 
-import {doSearch} from './helpers';
-import {updateStateBySearchResponse} from './helpers';
+import {
+    doSearch,
+    updateStateBySearchResponse
+} from './helpers';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
+    constructor( props ) {
+        super( props );
 
-    this.state = {
-      searchHits: [],
-      searchQuery: 'redux',
-      searchPage: 0,
-    };
-  }
+        this.state = {
+            searchHits: [],
+            searchQuery: 'redux',
+            searchPage: 0,
+        };
+    }
 
-  async componentDidMount() {
-    const response = await doSearch(this.state);
-    this.setState(updateStateBySearchResponse(response));
-  }
+    async componentDidMount() {
+        const response = await doSearch( this.state );
+        this.setState( updateStateBySearchResponse( response ) );
+    }
 
-  render() {
-    console.log(this.state);
+    render() {
+        console.log( this.state );
 
-    return (
-      <p>hello, hackernews!</p>
-    );
-  }
+        return (
+            <p>hello, hackernews!</p>
+        );
+    }
 
 }
 
