@@ -7,6 +7,7 @@ import {
 
 import AlertWarning from "../Alert/Warning";
 import Container from "../Container";
+import ListGroupNews from "../ListGroup/News";
 import NavBar from "../NavBar";
 import NavBarBrand from "../NavBar/Brand";
 import NavBarSearch from "../NavBar/Search";
@@ -39,6 +40,7 @@ class App extends React.Component {
                     <AlertWarning>
                         Apologies, but no entries were found.
                     </AlertWarning>
+                    <ListGroupNews/>
                 </Container>
             </div>
         );
