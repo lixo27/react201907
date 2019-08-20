@@ -5,6 +5,9 @@ import {
     updateStateBySearchResponse
 } from './helpers';
 
+import NavBar from "../NavBar";
+import NavBarBrand from "../NavBarBrand";
+
 class App extends React.Component {
 
     constructor( props ) {
@@ -26,7 +29,9 @@ class App extends React.Component {
         console.log( this.state );
 
         return (
-            <p>hello, hackernews!</p>
+            <NavBar>
+                <NavBarBrand>Hackernews!</NavBarBrand>
+            </NavBar>
         );
     }
 
