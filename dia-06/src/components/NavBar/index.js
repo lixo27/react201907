@@ -5,7 +5,7 @@ const NavBar = props => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            { children }
+            <div className="container">{ children }</div>
         </nav>
     );
 };

@@ -5,8 +5,11 @@ import {
     updateStateBySearchResponse
 } from './helpers';
 
+import AlertWarning from "../Alert/Warning";
+import Container from "../Container";
 import NavBar from "../NavBar";
-import NavBarBrand from "../NavBarBrand";
+import NavBarBrand from "../NavBar/Brand";
+import NavBarSearch from "../NavBar/Search";
 
 class App extends React.Component {
 
@@ -26,12 +29,18 @@ class App extends React.Component {
     }
 
     render() {
-        console.log( this.state );
-
         return (
-            <NavBar>
-                <NavBarBrand>Hackernews!</NavBarBrand>
-            </NavBar>
+            <div>
+                <NavBar>
+                    <NavBarBrand>Hackernews!</NavBarBrand>
+                    <NavBarSearch/>
+                </NavBar>
+                <Container>
+                    <AlertWarning>
+                        Apologies, but no entries were found.
+                    </AlertWarning>
+                </Container>
+            </div>
         );
     }
 

@@ -4,7 +4,7 @@ const NavBarBrand = props => {
     const { children } = props;
 
     return (
-        <a className="navbar-brand">{ children }</a>
+        <a href="/" className="navbar-brand">{ children }</a>
     );
 };
 
