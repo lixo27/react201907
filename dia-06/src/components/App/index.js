@@ -2,12 +2,13 @@ import React from 'react';
 
 import {
     doSearch,
-    updateStateBySearchResponse
+    updateStateBySearchResponse,
 } from './helpers';
 
 import AlertWarning from "../Alert/Warning";
 import Container from "../Container";
-import ListGroupNews from "../ListGroup/News";
+import JournalListGroup from "../ListGroup/Journal";
+import JournalListGroupItem from "../ListGroupItem/Journal";
 import NavBar from "../NavBar";
 import NavBarBrand from "../NavBar/Brand";
 import NavBarSearch from "../NavBar/Search";
@@ -18,8 +19,9 @@ class App extends React.Component {
         super( props );
 
         this.state = {
+            apologies: null,
             searchHits: [],
-            searchQuery: 'redux',
+            searchQuery: 'react',
             searchPage: 0,
         };
     }
@@ -30,6 +32,12 @@ class App extends React.Component {
     }
 
     render() {
+        const { apologies, searchHits } = this.state;
+
+        const journalItems = searchHits.map( item => {
+            return <JournalListGroupItem key={ item.objectID } item={ item }/>;
+        } );
+
         return (
             <div>
                 <NavBar>
@@ -37,10 +45,8 @@ class App extends React.Component {
                     <NavBarSearch/>
                 </NavBar>
                 <Container>
-                    <AlertWarning>
-                        Apologies, but no entries were found.
-                    </AlertWarning>
-                    <ListGroupNews/>
+                    { apologies && <AlertWarning>{ apologies }</AlertWarning> }
+                    { journalItems.length > 0 && <JournalListGroup>{ journalItems }</JournalListGroup> }
                 </Container>
             </div>
         );
