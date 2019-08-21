@@ -1,6 +1,6 @@
 import React from "react";
 
-const updateStateBySearchResponse = ( response ) => ( previous, props ) => {
+const updateStateBySearchResponse = ( response ) => () => {
     const { data: { hits, page } } = response;
 
     let apologies = null;
