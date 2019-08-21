@@ -1,0 +1,7 @@
+.btn-dismiss,
+.btn-dismiss:hover {
+    color: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+}
