@@ -1,6 +1,6 @@
 import React from "react";
 
-const updateStateBySearchResponse = ( response ) => () => {
+export const updateStateBySearchResponse = ( response ) => () => {
     const { data: { hits, page } } = response;
 
     let apologies = null;
@@ -15,13 +15,8 @@ const updateStateBySearchResponse = ( response ) => () => {
     };
 };
 
-const withChildren = Component => ( { children, ...rest } ) => {
+export const withChildren = Component => ( { children, ...rest } ) => {
     return ( children && children.length > 0 )
         ? <Component { ...rest }>{ children }</Component>
         : null;
 };
-
-export {
-    updateStateBySearchResponse,
-    withChildren,
-}

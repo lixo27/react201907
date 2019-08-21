@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { search } from "../../services/hackernews/api";
+import { updateStateBySearchResponse, withChildren } from "./helpers";
+
 import ApologizeAlert from "../Alert/Apologize";
 import Container from "../Container";
 import JournalListGroup from "../ListGroup/Journal";
@@ -7,11 +10,6 @@ import JournalListGroupItem from "../ListGroupItem/Journal";
 import NavBar from "../NavBar";
 import NavBarBrand from "../NavBar/Brand";
 import NavBarSearch from "../NavBar/Search";
-
-import { updateStateBySearchResponse } from './helpers';
-import { withChildren } from './helpers';
-
-import hackernews from "../../services/hackernews/api";
 
 const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
 const JournalListGroupWithChildren = withChildren( JournalListGroup );
@@ -32,7 +30,7 @@ class App extends React.Component {
     async componentDidMount() {
         const { searchQuery } = this.state;
 
-        const response = await hackernews.search( searchQuery );
+        const response = await search( searchQuery );
         this.setState( updateStateBySearchResponse( response ) );
     }
 
