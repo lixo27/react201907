@@ -1,19 +1,11 @@
 import React from 'react';
 
-const withApologiesOnly = ( Component ) => ( { apologies, ...rest } ) => {
-    return ( apologies && apologies.length > 0 )
-        ? <Component apologies={ apologies } { ...rest }/>
-        : null;
-};
-
-const ApologizeAlert = props => {
-    const { apologies } = props;
-
+const ApologizeAlert = ( { children } ) => {
     return (
         <div className="alert alert-warning">
-            { apologies }
+            { children }
         </div>
     );
 };
 
-export default withApologiesOnly( ApologizeAlert );
+export default ApologizeAlert;

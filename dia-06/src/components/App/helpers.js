@@ -1,4 +1,5 @@
 import hackernews from '../../api/hackernews';
+import React from "react";
 
 const doSearch = async ( state ) => {
     const { searchQuery, searchPage } = state;
@@ -27,7 +28,14 @@ const updateStateBySearchResponse = ( response ) => ( previous, props ) => {
     };
 };
 
+const withChildren = Component => ( { children, ...rest } ) => {
+    return ( children && children.length > 0 )
+        ? <Component { ...rest }>{ children }</Component>
+        : null;
+};
+
 export {
     doSearch,
     updateStateBySearchResponse,
+    withChildren,
 }

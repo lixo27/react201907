@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { doSearch } from './helpers';
-import { updateStateBySearchResponse } from './helpers';
-
 import ApologizeAlert from "../Alert/Apologize";
 import Container from "../Container";
 import JournalListGroup from "../ListGroup/Journal";
@@ -10,6 +7,13 @@ import JournalListGroupItem from "../ListGroupItem/Journal";
 import NavBar from "../NavBar";
 import NavBarBrand from "../NavBar/Brand";
 import NavBarSearch from "../NavBar/Search";
+
+import { doSearch } from './helpers';
+import { updateStateBySearchResponse } from './helpers';
+import { withChildren } from './helpers';
+
+const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
+const JournalListGroupWithChildren = withChildren( JournalListGroup );
 
 class App extends React.Component {
 
@@ -39,10 +43,14 @@ class App extends React.Component {
                     <NavBarSearch/>
                 </NavBar>
                 <Container>
-                    <ApologizeAlert apologies={ apologies }/>
-                    <JournalListGroup>
-                        { searchHits.map( item => <JournalListGroupItem key={ item.objectID } item={ item }/> ) }
-                    </JournalListGroup>
+                    <ApologizeAlertWithChildren>
+                        { apologies }
+                    </ApologizeAlertWithChildren>
+                    <JournalListGroupWithChildren>
+                        { searchHits.map( item =>
+                            <JournalListGroupItem key={ item.objectID } item={ item }/>
+                        ) }
+                    </JournalListGroupWithChildren>
                 </Container>
             </div>
         );
