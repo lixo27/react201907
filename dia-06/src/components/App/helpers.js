@@ -7,7 +7,7 @@ const doSearch = async ( state ) => {
         params: {
             query: searchQuery,
             page: searchPage,
-            hitsPerPage: 10
+            hitsPerPage: 10,
         }
     } );
 };
@@ -15,12 +15,15 @@ const doSearch = async ( state ) => {
 const updateStateBySearchResponse = ( response ) => ( previous, props ) => {
     const { data: { hits, page } } = response;
 
-    const apologies = hits.length === 0 ? 'Apologies, but no entries were found.' : null;
+    let apologies = null;
+    if ( hits.length === 0 ) {
+        apologies = 'Apologies, but no entries were found.';
+    }
 
     return {
         apologies,
         searchHits: hits,
-        searchPage: page
+        searchPage: page,
     };
 };
 
