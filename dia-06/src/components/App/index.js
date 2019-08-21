@@ -5,11 +5,11 @@ import { updateStateBySearchResponse, withChildren } from "./helpers";
 
 import ApologizeAlert from "../ApologizeAlert";
 import Container from "./components/Container";
+import JournalSearch from "../JournalSearch";
 import JournalListGroup from "../ListGroup/Journal";
 import JournalListGroupItem from "../ListGroupItem/Journal";
-import NavBar from "../NavBar";
-import NavBarBrand from "../NavBar/Brand";
-import NavBarSearch from "../NavBar/Search";
+import NavBar from "./components/NavBar";
+import NavBarBrand from "./components/NavBarBrand";
 
 const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
 const JournalListGroupWithChildren = withChildren( JournalListGroup );
@@ -41,7 +41,7 @@ class App extends React.Component {
             <div>
                 <NavBar>
                     <NavBarBrand>Hackernews!</NavBarBrand>
-                    <NavBarSearch/>
+                    <JournalSearch/>
                 </NavBar>
                 <Container>
                     <ApologizeAlertWithChildren>
