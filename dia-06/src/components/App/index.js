@@ -32,10 +32,6 @@ class App extends React.Component {
     render() {
         const { apologies, searchHits } = this.state;
 
-        const journalItems = searchHits.map( item => {
-            return <JournalListGroupItem key={ item.objectID } item={ item }/>;
-        } );
-
         return (
             <div>
                 <NavBar>
@@ -44,7 +40,9 @@ class App extends React.Component {
                 </NavBar>
                 <Container>
                     <ApologizeAlert apologies={ apologies }/>
-                    <JournalListGroup>{ journalItems }</JournalListGroup>
+                    <JournalListGroup>
+                        { searchHits.map( item => <JournalListGroupItem key={ item.objectID } item={ item }/> ) }
+                    </JournalListGroup>
                 </Container>
             </div>
         );
