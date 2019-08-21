@@ -8,9 +8,10 @@ import NavBar from "../NavBar";
 import NavBarBrand from "../NavBar/Brand";
 import NavBarSearch from "../NavBar/Search";
 
-import { doSearch } from './helpers';
 import { updateStateBySearchResponse } from './helpers';
 import { withChildren } from './helpers';
+
+import hackernews from "../../services/hackernews/api";
 
 const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
 const JournalListGroupWithChildren = withChildren( JournalListGroup );
@@ -29,7 +30,9 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await doSearch( this.state );
+        const { searchQuery } = this.state;
+
+        const response = await hackernews.search( searchQuery );
         this.setState( updateStateBySearchResponse( response ) );
     }
 
