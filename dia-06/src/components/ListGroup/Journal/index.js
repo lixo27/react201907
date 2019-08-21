@@ -2,12 +2,10 @@ import React from 'react';
 
 const JournalListGroup = props => {
     const { children } = props;
-
-    return (
-        <div className="list-group">
-            { children }
-        </div>
-    );
+    
+    return ( children && children.length > 0 )
+        ? <div className="list-group">{ children }</div>
+        : null;
 };
 
 export default JournalListGroup;

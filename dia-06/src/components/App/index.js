@@ -1,11 +1,9 @@
 import React from 'react';
 
-import {
-    doSearch,
-    updateStateBySearchResponse,
-} from './helpers';
+import { doSearch } from './helpers';
+import { updateStateBySearchResponse } from './helpers';
 
-import AlertWarning from "../Alert/Warning";
+import ApologizeAlert from "../Alert/Apologize";
 import Container from "../Container";
 import JournalListGroup from "../ListGroup/Journal";
 import JournalListGroupItem from "../ListGroupItem/Journal";
@@ -45,8 +43,8 @@ class App extends React.Component {
                     <NavBarSearch/>
                 </NavBar>
                 <Container>
-                    { apologies && <AlertWarning>{ apologies }</AlertWarning> }
-                    { journalItems.length > 0 && <JournalListGroup>{ journalItems }</JournalListGroup> }
+                    <ApologizeAlert apologies={ apologies }/>
+                    <JournalListGroup>{ journalItems }</JournalListGroup>
                 </Container>
             </div>
         );
