@@ -3,8 +3,8 @@ import React from 'react';
 import { search } from "../../services/hackernews/api";
 import { updateStateBySearchResponse, withChildren } from "./helpers";
 
-import ApologizeAlert from "../Alert/Apologize";
-import Container from "../Container";
+import ApologizeAlert from "../ApologizeAlert";
+import Container from "./components/Container";
 import JournalListGroup from "../ListGroup/Journal";
 import JournalListGroupItem from "../ListGroupItem/Journal";
 import NavBar from "../NavBar";
