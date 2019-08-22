@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { search } from "../../services/hackernews/api";
-import { updateStateBySearchResponse, withChildren } from "./helpers";
-
-import Alert from "../../components/Layout/components/Alert";
 import JournalList from "../../components/JournalList";
 import JournalListItem from "../../components/JournalListItem";
 import JournalSearch from "../../components/JournalSearch";
 import { Header, Main } from "../../components/Layout";
+import { withChildren } from "../../components/Layout/helpers";
 
-const AlertWithChildren = withChildren( Alert );
+import { updateStateBySearchResponse } from "./helpers";
+import { search } from "../../services/hackernews/api";
+
 const JournalListWithChildren = withChildren( JournalList );
 
 class Home extends React.Component {
@@ -44,8 +43,7 @@ class Home extends React.Component {
                 <Header>
                     <JournalSearch/>
                 </Header>
-                <Main>
-                    <AlertWithChildren>{ apologies }</AlertWithChildren>
+                <Main apologies={ apologies }>
                     <JournalListWithChildren>{ journalListItems }</JournalListWithChildren>
                 </Main>
             </div>
