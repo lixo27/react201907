@@ -5,14 +5,14 @@ import { updateStateBySearchResponse, withChildren } from "./helpers";
 
 import ApologizeAlert from "../ApologizeAlert";
 import Container from "./components/Container";
-import JournalSearch from "../JournalSearch";
-import JournalListGroup from "../ListGroup/Journal";
-import JournalListGroupItem from "../ListGroupItem/Journal";
 import NavBar from "./components/NavBar";
 import NavBarBrand from "./components/NavBarBrand";
+import JournalList from "../JournalList";
+import JournalSearch from "../JournalSearch";
+import JournalListGroupItem from "../ListGroupItem/Journal";
 
 const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
-const JournalListGroupWithChildren = withChildren( JournalListGroup );
+const JournalListWithChildren = withChildren( JournalList );
 
 class App extends React.Component {
 
@@ -47,11 +47,11 @@ class App extends React.Component {
                     <ApologizeAlertWithChildren>
                         { apologies }
                     </ApologizeAlertWithChildren>
-                    <JournalListGroupWithChildren>
+                    <JournalListWithChildren>
                         { searchHits.map( item =>
                             <JournalListGroupItem key={ item.objectID } item={ item }/>
                         ) }
-                    </JournalListGroupWithChildren>
+                    </JournalListWithChildren>
                 </Container>
             </div>
         );
