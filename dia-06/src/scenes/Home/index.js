@@ -4,12 +4,10 @@ import { search } from "../../services/hackernews/api";
 import { updateStateBySearchResponse, withChildren } from "./helpers";
 
 import Alert from "../../components/Layout/components/Alert";
-import Container from "../../components/Layout/components/Container";
-import NavBar from "../../components/Layout/components/NavBar";
-import NavBarBrand from "../../components/Layout/components/NavBarBrand";
 import JournalList from "../../components/JournalList";
 import JournalListItem from "../../components/JournalListItem";
 import JournalSearch from "../../components/JournalSearch";
+import { Header, Main } from "../../components/Layout";
 
 const AlertWithChildren = withChildren( Alert );
 const JournalListWithChildren = withChildren( JournalList );
@@ -43,14 +41,13 @@ class Home extends React.Component {
 
         return (
             <div>
-                <NavBar>
-                    <NavBarBrand/>
+                <Header>
                     <JournalSearch/>
-                </NavBar>
-                <Container>
+                </Header>
+                <Main>
                     <AlertWithChildren>{ apologies }</AlertWithChildren>
                     <JournalListWithChildren>{ journalListItems }</JournalListWithChildren>
-                </Container>
+                </Main>
             </div>
         );
     }
