@@ -8,8 +8,8 @@ import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import NavBarBrand from "./components/NavBarBrand";
 import JournalList from "../JournalList";
+import JournalListItem from "../JournalListItem";
 import JournalSearch from "../JournalSearch";
-import JournalListGroupItem from "../ListGroupItem/Journal";
 
 const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
 const JournalListWithChildren = withChildren( JournalList );
@@ -49,7 +49,7 @@ class App extends React.Component {
                     </ApologizeAlertWithChildren>
                     <JournalListWithChildren>
                         { searchHits.map( item =>
-                            <JournalListGroupItem key={ item.objectID } item={ item }/>
+                            <JournalListItem key={ item.objectID } item={ item }/>
                         ) }
                     </JournalListWithChildren>
                 </Container>
