@@ -3,10 +3,10 @@ import React from 'react';
 import { search } from "../../services/hackernews/api";
 import { updateStateBySearchResponse, withChildren } from "./helpers";
 
-import Alert from "./components/Alert";
-import Container from "./components/Container";
-import NavBar from "./components/NavBar";
-import NavBarBrand from "./components/NavBarBrand";
+import Alert from "../../components/Layout/components/Alert";
+import Container from "../../components/Layout/components/Container";
+import NavBar from "../../components/Layout/components/NavBar";
+import NavBarBrand from "../../components/Layout/components/NavBarBrand";
 import JournalList from "../../components/JournalList";
 import JournalListItem from "../../components/JournalListItem";
 import JournalSearch from "../../components/JournalSearch";
@@ -44,7 +44,7 @@ class Home extends React.Component {
         return (
             <div>
                 <NavBar>
-                    <NavBarBrand>Hackernews!</NavBarBrand>
+                    <NavBarBrand/>
                     <JournalSearch/>
                 </NavBar>
                 <Container>
