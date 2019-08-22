@@ -3,7 +3,7 @@ import React from 'react';
 import { search } from "../../services/hackernews/api";
 import { updateStateBySearchResponse, withChildren } from "./helpers";
 
-import ApologizeAlert from "../ApologizeAlert";
+import Alert from "./components/Alert";
 import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import NavBarBrand from "./components/NavBarBrand";
@@ -11,7 +11,7 @@ import JournalList from "../JournalList";
 import JournalListItem from "../JournalListItem";
 import JournalSearch from "../JournalSearch";
 
-const ApologizeAlertWithChildren = withChildren( ApologizeAlert );
+const AlertWithChildren = withChildren( Alert );
 const JournalListWithChildren = withChildren( JournalList );
 
 class App extends React.Component {
@@ -37,6 +37,10 @@ class App extends React.Component {
     render() {
         const { apologies, searchHits } = this.state;
 
+        const journalListItems = searchHits.map( item => (
+            <JournalListItem key={ item.objectID } item={ item }/>
+        ) );
+
         return (
             <div>
                 <NavBar>
@@ -44,14 +48,8 @@ class App extends React.Component {
                     <JournalSearch/>
                 </NavBar>
                 <Container>
-                    <ApologizeAlertWithChildren>
-                        { apologies }
-                    </ApologizeAlertWithChildren>
-                    <JournalListWithChildren>
-                        { searchHits.map( item =>
-                            <JournalListItem key={ item.objectID } item={ item }/>
-                        ) }
-                    </JournalListWithChildren>
+                    <AlertWithChildren>{ apologies }</AlertWithChildren>
+                    <JournalListWithChildren>{ journalListItems }</JournalListWithChildren>
                 </Container>
             </div>
         );

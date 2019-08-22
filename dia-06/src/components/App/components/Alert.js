@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ApologizeAlert = ( { children } ) => (
+const Alert = ( { children } ) => (
     <div className="alert alert-warning">
         { children }
     </div>
 );
 
-export default ApologizeAlert;
+export default Alert;
