@@ -7,14 +7,14 @@ import Alert from "./components/Alert";
 import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import NavBarBrand from "./components/NavBarBrand";
-import JournalList from "../JournalList";
-import JournalListItem from "../JournalListItem";
-import JournalSearch from "../JournalSearch";
+import JournalList from "../../components/JournalList";
+import JournalListItem from "../../components/JournalListItem";
+import JournalSearch from "../../components/JournalSearch";
 
 const AlertWithChildren = withChildren( Alert );
 const JournalListWithChildren = withChildren( JournalList );
 
-class App extends React.Component {
+class Home extends React.Component {
 
     constructor( props ) {
         super( props );
@@ -57,4 +57,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default Home;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import Home from "./scenes/Home";
 
 const rootEl = document.getElementById( 'root' );
-ReactDOM.render( <App/>, rootEl );
+ReactDOM.render( <Home/>, rootEl );
