@@ -4,8 +4,7 @@ import Alert from "./components/Alert";
 import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import NavBarBrand from "./components/NavBarBrand";
-
-import { withChildren } from "./helpers";
+import {withChildren} from "../../utility/helpers";
 
 const AlertWithChildren = withChildren( Alert );
 

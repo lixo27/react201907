@@ -4,8 +4,8 @@ import JournalList from "../../components/JournalList";
 import JournalListItem from "../../components/JournalListItem";
 import JournalSearch from "../../components/JournalSearch";
 import { Header, Main } from "../../components/Layout";
-import { withChildren } from "../../components/Layout/helpers";
-import { search } from "../../services/hackernews";
+import { withChildren } from "../../utility/helpers";
+import { search } from "../../utility/hackernews";
 
 const JournalListWithChildren = withChildren( JournalList );
 
