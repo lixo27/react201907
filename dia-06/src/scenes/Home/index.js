@@ -7,7 +7,7 @@ import { Header, Main } from "../../components/Layout";
 import { withChildren } from "../../components/Layout/helpers";
 
 import { updateStateBySearchResponse } from "./helpers";
-import { search } from "../../services/hackernews/api";
+import { hackernewsSearch } from "../../services/hackernews-api";
 
 const JournalListWithChildren = withChildren( JournalList );
 
@@ -27,7 +27,7 @@ class Home extends React.Component {
     async componentDidMount() {
         const { searchQuery } = this.state;
 
-        const response = await search( searchQuery );
+        const response = await hackernewsSearch( searchQuery );
         this.setState( updateStateBySearchResponse( response ) );
     }
 
