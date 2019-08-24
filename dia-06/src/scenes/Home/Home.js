@@ -3,7 +3,8 @@ import React from 'react';
 import JournalList from "../../components/JournalList";
 import JournalListItem from "../../components/JournalListItem";
 import JournalSearch from "../../components/JournalSearch";
-import { Header, Main } from "../../components/Layout";
+import LayoutHeader from "../../components/LayoutHeader";
+import LayoutMain from "../../components/LayoutMain";
 import { withChildren } from "../../utility/helpers";
 import { search } from "../../utility/hackernews";
 
@@ -38,12 +39,12 @@ class Home extends React.Component {
 
         return (
             <div>
-                <Header>
+                <LayoutHeader title="Hacker News!">
                     <JournalSearch/>
-                </Header>
-                <Main apologies={ apologies }>
+                </LayoutHeader>
+                <LayoutMain apologies={ apologies }>
                     <JournalListWithChildren>{ journalListItems }</JournalListWithChildren>
-                </Main>
+                </LayoutMain>
             </div>
         );
     }
