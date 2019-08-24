@@ -9,10 +9,14 @@ import { withChildren } from "../../../utility/helpers";
 
 const JournalListWithChildren = withChildren( JournalList );
 
-const HomeMarkup = ( { title, apologies, searchHits } ) => (
+const HomeMarkup = ( { title, apologies, searchHits, searchValue, onSearchChange, onSearchSubmit } ) => (
     <div>
         <LayoutHeader title={ title }>
-            <JournalSearch/>
+            <JournalSearch
+                value={ searchValue }
+                onChange={ onSearchChange }
+                onSubmit={ onSearchSubmit }
+            />
         </LayoutHeader>
         <LayoutMain apologies={ apologies }>
             <JournalListWithChildren>

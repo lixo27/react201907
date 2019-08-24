@@ -15,23 +15,43 @@ class Home extends React.Component {
             searchQuery: 'react',
             searchPage: 0,
         };
+
+        this.doSearch = this.doSearch.bind( this );
+        this.onSearchChange = this.onSearchChange.bind( this );
+        this.onSearchSubmit = this.onSearchSubmit.bind( this );
     }
 
     async componentDidMount() {
-        const { searchQuery } = this.state;
+        this.doSearch();
+    }
 
+    async doSearch() {
+        const { searchQuery } = this.state;
         const response = await search( searchQuery );
         this.setState( updateStateBySearchResponse( response ) );
     }
 
+    onSearchChange( event ) {
+        const { target: { value } } = event;
+        this.setState( { searchQuery: value } );
+    }
+
+    async onSearchSubmit( event ) {
+        this.doSearch();
+        event.preventDefault();
+    }
+
     render() {
-        const { apologies, searchHits } = this.state;
+        const { apologies, searchQuery, searchHits } = this.state;
 
         return (
             <HomeMarkup
                 title="Hacker News!"
                 apologies={ apologies }
                 searchHits={ searchHits }
+                searchValue={ searchQuery }
+                onSearchChange={ this.onSearchChange }
+                onSearchSubmit={ this.onSearchSubmit }
             />
         );
     }
